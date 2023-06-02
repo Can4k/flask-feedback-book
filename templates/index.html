@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Гостевая книга</title>
+</head>
+<body>
+<section class="feedback-book">
+    <h2>Гостевая книга</h2>
+    {% include 'form.html' %}
+    <h2>Отзывы</h2>
+    <div class="posts-container">
+        {% for post in posts %}
+        {% include 'post.html' %}
+        {% endfor %}
+    </div>
+
+    {% if empty_list %}
+    <p class="posts-list-empty">Постов пока нет</p>
+    {% endif %}
+</section>
+</body>
+</html>
